@@ -1,0 +1,11 @@
+<h1> Welcome to the campgrounds site </h1>
+
+<% for( var i = 0; i < campgrounds.length; i++){ %>
+
+	<figure>
+	<img src="<%= campgrounds[i].image %>">
+	<figcaption> <%= campgrounds[i].name %> </figcaption>
+	</figure>
+
+<%} %>
+
