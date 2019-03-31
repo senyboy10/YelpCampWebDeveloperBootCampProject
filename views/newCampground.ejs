@@ -1,0 +1,17 @@
+<% include partials/header %>
+
+
+<h1> Please Enter a new BootCamp Below</h1>
+
+
+<form action="/campgrounds" method= "POST">
+	<input type = "text" placeholder = "Campground Name" name = "name">
+	<input type = "text" placeholder = "Image URL" name = "image">
+	<button type = "submit" >Submit</button>
+	
+</form>
+
+
+<a href = "/campgrounds">Go Back </a>
+
+<% include partials/footer %>

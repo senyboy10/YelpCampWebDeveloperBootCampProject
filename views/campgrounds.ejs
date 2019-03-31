@@ -1,4 +1,10 @@
+<% include partials/header %>
+
+
 <h1> Welcome to the campgrounds site </h1>
+
+<a href="/campgrounds/newCampground">Add a new campground</a>
+
 
 <% for( var i = 0; i < campgrounds.length; i++){ %>
 
@@ -8,4 +14,7 @@
 	</figure>
 
 <%} %>
+
+
+<% include partials/footer %>
 
