@@ -23,32 +23,7 @@ var campgroundSchema = new mongoose.Schema({
 //Database Collection Model for Campground
 var Campground = mongoose.model("Campground", campgroundSchema);
 
-/*
 
-Campgrounds.create({
-    name: "lastAdded",
-    image: "https://images.pexels.com/photos/776117/pexels-photo-776117.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-}, function(err, newCampG) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("image saved!");
-        console.log(newCampG);
-    }
-});
-
-*/
-/*
-Campground.find(function(err, campground) {
-    if (err) {
-        console.log("\nOh no ERROR!!\n");
-        console.log(err);
-    } else {
-        console.log("\nLIST OF ALL CAMPGROUNDS: \n");
-        console.log(campground);
-    }
-});
-*/
 
 //deault landing page
 app.get("/", function(req, res) {
