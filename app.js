@@ -4,22 +4,53 @@ var express = require("express"),
     port = 3000,
     bodyParser = require("body-parser");
 
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-
 //routing for html files. no need for extension (file type)
 app.set("view engine", "ejs");
 
 
+//DataBase Schema SetUp
+var campgroundSchema = new mongoose.Schema({
+    name: String,
+    image: String,
+});
 
-var campgrounds = [
-        { name: "Alseny Sylla", image: "https://images.pexels.com/photos/1376960/pexels-photo-1376960.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" },
-        { name: "Nana Sylla", image: "https://images.pexels.com/photos/1230302/pexels-photo-1230302.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" },
-        { name: "Hamidou Sylla", image: "https://images.pexels.com/photos/776117/pexels-photo-776117.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" }
-    ]
-    //deault landing page
+//Database Collection Model for Campground
+var Campground = mongoose.model("Campground", campgroundSchema);
+
+/*
+
+Campgrounds.create({
+    name: "lastAdded",
+    image: "https://images.pexels.com/photos/776117/pexels-photo-776117.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+}, function(err, newCampG) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("image saved!");
+        console.log(newCampG);
+    }
+});
+
+*/
+/*
+Campground.find(function(err, campground) {
+    if (err) {
+        console.log("\nOh no ERROR!!\n");
+        console.log(err);
+    } else {
+        console.log("\nLIST OF ALL CAMPGROUNDS: \n");
+        console.log(campground);
+    }
+});
+*/
+
+//deault landing page
 app.get("/", function(req, res) {
     res.render("landing");
 });
@@ -27,11 +58,20 @@ app.get("/", function(req, res) {
 
 //  "/campgrounds" will show us all the campground that we have
 app.get("/campgrounds", function(req, res) {
-    //Adding temporary campground mode (hardcoding for testing)
+    Campground.find({}, function(err, allCampgrounds) {
+        if (err) {
 
-    //right side the data we are passing in
-    //left side is the page we are opening. 
-    res.render("campgrounds", { campgrounds: campgrounds });
+            console.log(err);
+        } else {
+
+            //right side the data we are passing in
+            //left side is the name of object that will be passed in html file. 
+            res.render("campgrounds", { campgrounds: allCampgrounds });
+        }
+    });
+
+
+
 });
 
 // "/newCampground" will allow us to add a new campground
@@ -40,11 +80,18 @@ app.get("/campgrounds/newCampground", function(req, res) {
 });
 
 app.post("/campgrounds", function(req, res) {
+
     var name_ = req.body.name;
     var image_ = req.body.image;
     var newCamGround = { name: name_, image: image_ }
-    campgrounds.push(newCamGround);
-    res.redirect("/campgrounds");
+    Campground.create(newCamGround, function(err, newCampG) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/campgrounds");
+        }
+    });
+
 });
 //Listen on port 3000
 app.listen(port, function() {
