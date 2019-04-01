@@ -5,32 +5,28 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 #YelpCamp
 
 ##Initial Setup
-* Add Landing Page
-* Add Campgrounds Page that lists all campgrounds
+* Landing Page To get started ("/")
+* Campgrounds page to list all campgrounds with name and image ("/camprounds")
+* Add a new campground to the list ("/campgrounds/newCampground")
+* Show a specific image by clicking on More info button the campground page ("/campgrounds/:id)
 
-Each Campground has:
+# DBMS
+* MongoDB
+	* mongoose for schema ( model)
+
+* Each Campground has:
    * Name
    * Image
+   * Description
 
-#Layout and Basic Styling
-* Create our header and footer partials
-* Add in Bootstrap
+#Front End
+* Bootstrap 4.3.1
+* HTML, CSS, JavaScript
 
-#Creating New Campgrounds
-* Setup new campground POST route
-* Add in body-parser
-* Setup route to show form
-* Add basic unstyled form
-
-#Style the campgrounds page
-* Add a better header/title
-* Make campgrounds display in a grid
-
-#Style the Navbar and Form
-* Add a navbar to all templates
-* Style the new campground form
-
-#Add Mongoose
-* Install and configure mongoose
-* Setup campground model
-* Use campground model inside of our routes!
+#Backend
+  * NodeJs
+	* express
+	* body-parser
+	* mongoose
+	* ejs
+	
