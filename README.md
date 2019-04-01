@@ -12,21 +12,23 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 
 # DBMS
 * MongoDB
-	* mongoose for schema ( model)
+	* mongoose for schema and Model
 
 * Each Campground has:
    * Name
    * Image
    * Description
 
-#Front End
+# Front End
 * Bootstrap 4.3.1
 * HTML, CSS, JavaScript
 
-#Backend
+# Backend
   * NodeJs
 	* express
 	* body-parser
 	* mongoose
 	* ejs
+
+#Sever: run "node app.js"
 	
