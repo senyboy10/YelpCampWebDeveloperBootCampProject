@@ -18,18 +18,17 @@ app.set("view engine", "ejs");
 var campgroundSchema = new mongoose.Schema({
     name: String,
     image: String,
+    description: String
 });
 
 //Database Collection Model for Campground
 var Campground = mongoose.model("Campground", campgroundSchema);
 
 
-
 //deault landing page
 app.get("/", function(req, res) {
     res.render("landing");
 });
-
 
 //  "/campgrounds" will show us all the campground that we have
 app.get("/campgrounds", function(req, res) {
@@ -44,9 +43,6 @@ app.get("/campgrounds", function(req, res) {
             res.render("campgrounds", { campgrounds: allCampgrounds });
         }
     });
-
-
-
 });
 
 // "/newCampground" will allow us to add a new campground
@@ -54,11 +50,28 @@ app.get("/campgrounds/newCampground", function(req, res) {
     res.render("newCampground.ejs");
 });
 
+
+app.get("/campgrounds/:id", function(req, res) {
+
+    //use mongodB findById to search specific in the db
+    Campground.findById(req.params.id, function(err, currObj) {
+        if (err) {
+            console.log(err);
+        } else {
+            //Open the "show" with the current campground object
+            console.log(currObj);
+            res.render("show", { currCampground: currObj });
+        }
+    })
+
+
+});
 app.post("/campgrounds", function(req, res) {
 
     var name_ = req.body.name;
     var image_ = req.body.image;
-    var newCamGround = { name: name_, image: image_ }
+    var description = "this is our first description comment";
+    var newCamGround = { name: name_, image: image_, description }
     Campground.create(newCamGround, function(err, newCampG) {
         if (err) {
             console.log(err);
