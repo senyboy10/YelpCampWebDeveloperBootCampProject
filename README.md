@@ -4,11 +4,17 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 
 #YelpCamp
 
-##Initial Setup
-* Landing Page To get started ("/")
-* Campgrounds page to list all campgrounds with name and image ("/camprounds")
-* Add a new campground to the list ("/campgrounds/newCampground")
-* Show a specific image by clicking on More info button the campground page ("/campgrounds/:id)
+##Initial Setup: 7 RESTful routes
+
+###Name				Path						HTTP verb	Purpose
+* campgrounds		/campgrounds				GET			list all campgrounds
+* newCampground		/campgrounds/newCampground	GET			show new campground form
+* Create			/campgrounds				POST		Create a new campground, then redirect somewhere
+* Show				/campgrounds/:id			GET			Show info about one specific Campground
+* Edit				/campgrounds/:id/edit		GET			Show edit form for one campground
+* Update			/campgrounds/:id			PUT			Update a particular campground, then redirect somewhere
+* Destroy			/campgrounds/:id			DELETE		Delete a particular dog, then redirect somewhere
+
 
 # DBMS
 * MongoDB
