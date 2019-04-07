@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+    <div class="text-center">
+        <h1 class="Text-center"> Welcome to the show slide of yelpcamp application</h1>
+
+        <p>
+            <%= currCampground.name %>
+        </p>
+
+        <img src="<%= currCampground.image %>">
+        <p>
+            <%=currCampground.description %>
+        </p>
+        <% for (var i =0; i < currCampground.comments.length; i++){%>
+            <p>
+                <strong> <%=currCampground.comments[i].author%></strong> --
+                <%=currCampground.comments[i].text%>
+            </p>
+            <%}%>
+
+                <hr>
+                <a href="/campgrounds/<%= currCampground._id %>/comments/new" class="btn btn-primary">Add a new comment</a>
+
+                <a href="/campgrounds" style="margin-left: 6%" class="btn btn-info sm">Go back</a>
+
+
+    </div>
+
+    <% include ../partials/footer %>
