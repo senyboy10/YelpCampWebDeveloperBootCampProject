@@ -18,8 +18,10 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 
 
 ##Comment
-| new | campgrounds/:id/comments/new | GET
-|Create| campgrounds/:id/comments|POST 
+|Name|Path|HTTP verb|Purpose|
+|----|----|---------|-------|
+| new | campgrounds/:id/comments/new | GET| show comment form|
+|Create| campgrounds/:id/comments|POST| show campground with comments |
 
 # DBMS
 * MongoDB
@@ -29,6 +31,7 @@ Yelcamp Project from Web developer bootcamp (Udemy)
    * Name
    * Image
    * Description
+   * Comment 
 
 # Front End
 * Bootstrap 4.3.1 (navbar, forms, button)
