@@ -17,11 +17,11 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 |Destroy|/campgrounds/:id|DELETE|Delete a particular dog, then redirect somewhere|
 
 
-##Comment
-|----|----|---------|-------|
+
+
 |Name|Path|HTTP verb|Purpose|
 |----|----|---------|-------|
-| new | campgrounds/:id/comments/new | GET| show comment form|
+| new| campgrounds/:id/comments/new | GET| show comment form|
 |Create| campgrounds/:id/comments|POST| show |campground with comments |
 
 # DBMS
