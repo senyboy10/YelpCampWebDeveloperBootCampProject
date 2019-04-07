@@ -18,10 +18,11 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 
 
 ##Comment
+|----|----|---------|-------|
 |Name|Path|HTTP verb|Purpose|
 |----|----|---------|-------|
 | new | campgrounds/:id/comments/new | GET| show comment form|
-|Create| campgrounds/:id/comments|POST| show campground with comments |
+|Create| campgrounds/:id/comments|POST| show |campground with comments |
 
 # DBMS
 * MongoDB
