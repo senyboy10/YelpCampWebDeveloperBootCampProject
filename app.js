@@ -14,9 +14,8 @@ mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true }
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static("public"));
 app.set("view engine", "ejs");
-
+app.use(express.static(__dirname + "/public"));
 
 
 
@@ -62,7 +61,7 @@ app.post("/campgrounds", function(req, res) {
 
     var name_ = req.body.name;
     var image_ = req.body.image;
-    var description = "this is our first description comment";
+    var description = req.body.description;
     var newCamGround = { name: name_, image: image_, description }
     Campground.create(newCamGround, function(err, newCampG) {
         if (err) {

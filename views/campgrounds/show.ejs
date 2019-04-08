@@ -1,29 +1,81 @@
 <% include ../partials/header %>
 
-    <div class="text-center">
-        <h1 class="Text-center"> Welcome to the show slide of yelpcamp application</h1>
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead">YelpCamp</p>
+            <div class="list-group">
+                <li class="list-group-item active">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+            <div id="map"></div>
+        </div>
 
-        <p>
-            <%= currCampground.name %>
-        </p>
+        <div class="col-md-9">
 
-        <img src="<%= currCampground.image %>">
-        <p>
-            <%=currCampground.description %>
-        </p>
-        <% for (var i =0; i < currCampground.comments.length; i++){%>
-            <p>
-                <strong> <%=currCampground.comments[i].author%></strong> --
-                <%=currCampground.comments[i].text%>
-            </p>
-            <%}%>
+            <div class="card mb-3">
+                <img class="card-img-top" src="<%= currCampground.image %>" alt=" <%= currCampground.name %>">
 
-                <hr>
-                <a href="/campgrounds/<%= currCampground._id %>/comments/new" class="btn btn-primary">Add a new comment</a>
+                <div class="card-body">
+                    <p class="float-right">$10/night</p>
+                    <h5 class="card-title">
+                        <a href="#">
+                            <%= currCampground.name%>
+                        </a>
+                    </h5>
+                    <hr>
+                    <p>
+                        <%=currCampground.description %>
+                    </p>
+                </div>
+            </div>
 
-                <a href="/campgrounds" style="margin-left: 6%" class="btn btn-info sm">Go back</a>
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-right">
+                        <a href="/campgrounds/<%= currCampground._id %>/comments/new" class="btn btn-primary">Add a new comment</a>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <% for (var i =0; i < currCampground.comments.length; i++){%>
+                            <div class="col-md-12 mb-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="float-left">
+                                            <p class="card-title">
+                                                <strong><%=currCampground.comments[i].author%></strong>
+
+                                            </p>
+                                            <p class="card-text">
+                                                <%=currCampground.comments[i].text%>
+                                            </p>
+                                        </div>
+
+                                        <div class="float-right">
+                                            <p>10 days ago!</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <%}%>
+                    </div>
 
 
+
+                    <hr>
+
+                    <a href="/campgrounds" style="margin-left: 6%" class="btn btn-info sm">Go back</a>
+
+                </div>
+            </div>
+
+
+        </div>
     </div>
+
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkG51lwJtDvYFKTBdRZlhzYg1D4QFsXPU&callback=initMap"></script>
 
     <% include ../partials/footer %>

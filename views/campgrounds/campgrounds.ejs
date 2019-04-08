@@ -3,11 +3,18 @@
     <div class="container">
 
         <header class="jumbotron text-center">
-
-            <h1> Welcome to Yelpcamp World</h1>
+            <h1><span class="glyphicon glyphicon-tent"></span> Welcome To YelpCamp!</h1>
             <p>View our our hand-picked campgrounds from all over the world</p>
             <hr class="my-4">
             <a href="/campgrounds/newCampground" class="btn btn-primary btn-lg">Add a New Campground</a>
+
+            <p>
+                <form action="/campgrounds" method="GET" class="form-inline" id="campground-search">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Campground search..." class="form-control">
+                    </div>
+                </form>
+            </p>
 
         </header>
 
@@ -20,11 +27,12 @@
 
                         <img class="card-img-top" src="<%= campgrounds[i].image %>" alt="<%=campgrounds[i].name %>">
                         <div class="card-body">
+
                             <h5 class="card-title">
                                 <%=campgrounds[i].name %>
                             </h5>
                             <!--Retrieve the id of the current campgound and send it as a Get request-->
-                            <a href="/campgrounds/<%= campgrounds[i]._id %>" class="btn btn-info sm">More info</a>
+                            <a href="/campgrounds/<%= campgrounds[i]._id %>" class="btn btn-primary sm">More info</a>
 
                         </div>
 
