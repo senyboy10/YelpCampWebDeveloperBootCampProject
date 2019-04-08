@@ -76,6 +76,7 @@ app.post("/campgrounds", function(req, res) {
 
 //=========================COMMENT SECTION=======================
 
+
 //Get form for a comments
 app.get("/campgrounds/:id/comments/new", function(req, res) {
 

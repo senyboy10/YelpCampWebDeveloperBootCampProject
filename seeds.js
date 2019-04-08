@@ -22,12 +22,12 @@ var data = [{
 //first let's remove everything in the database
 function seedDB() {
     //Remove all campgrounds
-    Campground.remove({}, function(err) {
+    Campground.deleteMany({}, function(err) {
         if (err) {
             console.log(err);
         }
         console.log("removed campgrounds!");
-        Comment.remove({}, function(err) {
+        Comment.deleteMany({}, function(err) {
             if (err) {
                 console.log(err);
             }

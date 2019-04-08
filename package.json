@@ -1,25 +1,25 @@
 {
-  "name": "yelpcamp",
-  "version": "1.0.0",
-  "description": "A dynamic website that allows a camp members to login and upload files. ",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/senyboy10/YelpCampWebDeveloperBootCampProject.git"
-  },
-  "author": "Instructor: Cole Steele | Student: Alseny Sylla",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/senyboy10/YelpCampWebDeveloperBootCampProject/issues"
-  },
-  "homepage": "https://github.com/senyboy10/YelpCampWebDeveloperBootCampProject#readme",
-  "dependencies": {
-    "body-parser": "^1.18.3",
-    "ejs": "^2.6.1",
-    "express": "^4.16.4",
-    "mongoose": "^5.4.22"
-  }
+    "name": "yelpcamp",
+    "version": "1.0.0",
+    "description": "A dynamic website that allows a camp members to login and upload files. ",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/senyboy10/YelpCampWebDeveloperBootCampProject.git"
+    },
+    "author": "Instructor: Cole Steele | Student: Alseny Sylla",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/senyboy10/YelpCampWebDeveloperBootCampProject/issues"
+    },
+    "homepage": "https://github.com/senyboy10/YelpCampWebDeveloperBootCampProject#readme",
+    "dependencies": {
+        "body-parser": "^1.18.3",
+        "ejs": "^2.6.1",
+        "express": "^4.16.4",
+        "mongoose": "^5.4.22"
+    }
 }

@@ -43,8 +43,16 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 	* mongoose
 	* express
 	* express Sanitizer
+	* express-Session
 	* body-parser
 	* ejs
+
+# Authentication
+* passport
+* * passport
+* * passport Local
+* * passport local Mongoose
+* * 
 
 #Sever: run "node app.js"
 	
