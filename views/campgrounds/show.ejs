@@ -22,10 +22,14 @@
                         <a href="#">
                             <%= currCampground.name%>
                         </a>
+
                     </h5>
                     <hr>
                     <p>
                         <%=currCampground.description %>
+                    </p>
+                    <p><em>Submitted by </em>
+                        <%= currCampground.author.username%>
                     </p>
                 </div>
             </div>
