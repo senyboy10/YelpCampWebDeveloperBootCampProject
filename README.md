@@ -17,6 +17,7 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 |Destroy|/campgrounds/:id|DELETE|Delete a particular dog, then redirect somewhere|
 
 
+* Comment restful 
 
 
 |Name|Path|HTTP verb|Purpose|
