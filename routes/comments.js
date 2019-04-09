@@ -29,21 +29,22 @@ router.post("/", isLoggedIn, function(req, res) {
     Campground.findById(req.params.id).populate("comments").exec(function(err, currObj) {
         if (err) {
             console.log(err);
+            res.redirect("/campgrounds");
         } else {
             //Open the "show" with the current campground object
-            console.log(currObj);
 
-            Comment.create({
-                author: req.body.author,
-                text: req.body.comment
-            }, function(err, newComment) {
+            Comment.create(req.body.comment, function(err, newComment) {
                 if (err) {
                     console.log(err);
                 } else {
+                    //add username and id to comment
+                    newComment.author.id = req.user._id;
+                    newComment.author.username = req.user.username;
+                    //save comment
+                    newComment.save();
                     currObj.comments.push(newComment);
                     currObj.save();
-
-                    console.log(currObj);
+                    console.log(newComment);
                     res.redirect("/campgrounds/" + currObj._id);
 
                 }

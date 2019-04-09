@@ -60,8 +60,6 @@ app.use(function(req, res, next) {
     next();
 })
 
-
-
 //use all routes that are required
 app.use(authRoutes);
 app.use("/campgrounds", campgroundRoutes);
