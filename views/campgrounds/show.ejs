@@ -31,7 +31,17 @@
                     <p><em>Submitted by </em>
                         <%= currCampground.author.username%>
                     </p>
-                    <a class="btn btn-warning btn-md " href="/campgrounds/<%= currCampground._id %>/edit">Edit</a>
+
+                    <% if ( currentUser &&  currCampground.author.id.equals(currentUser._id)){%>
+                        <a class="btn btn-warning btn-md " href="/campgrounds/<%= currCampground._id %>/edit">Edit</a>
+
+                        <form id="delete-form" action="/campgrounds/<%=currCampground._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger" type="submit">Delete</a>
+                    </form>
+                   <% } %>
+                        
+                
+
                 </div>
             </div>
 
@@ -81,6 +91,8 @@
     </div>
 
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkG51lwJtDvYFKTBdRZlhzYg1D4QFsXPU&callback=initMap"></script>
+    
+
+
 
     <% include ../partials/footer %>

@@ -19,7 +19,7 @@ var commentRoutes = require("./routes/comments"),
     authRoutes = require('./routes/index');
 
 //add three new campgrounds sample everything the server restarts
-seedDB();
+//seedDB();
 
 //open connection with mongoDB for the yelcamp DB
 mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true });

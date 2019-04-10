@@ -8,6 +8,10 @@ body {
     margin-bottom: 60px;
 }
 
+#delete-form {
+    display: inline;
+}
+
 .thumbnail img {
     width: 100%;
 }
