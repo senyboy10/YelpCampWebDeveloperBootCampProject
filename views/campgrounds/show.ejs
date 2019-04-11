@@ -35,7 +35,7 @@
                     <% if ( currentUser &&  currCampground.author.id.equals(currentUser._id)){%>
                         <a class="btn btn-warning btn-md " href="/campgrounds/<%= currCampground._id %>/edit">Edit</a>
 
-                        <form id="delete-form" action="/campgrounds/<%=currCampground._id %>?_method=DELETE" method="POST">
+                        <form class="delete-form" action="/campgrounds/<%=currCampground._id %>?_method=DELETE" method="POST">
                             <button class="btn btn-danger" type="submit">Delete</a>
                     </form>
                    <% } %>
@@ -62,37 +62,49 @@
 
                                             </p>
                                             <p class="card-text">
-                                                <%=currCampground.comments[i].text%>
+                                                <%-currCampground.comments[i].text%>
                                             </p>
-                                        </div>
+                                            <% if ( currentUser &&  currCampground.comments[i].author.id.equals(currentUser._id)){%>
+                                            <a class="btn btn-warning btn-md"
+                                                href="/campgrounds/<%= currCampground._id %>/comments/<%=currCampground.comments[i]._id%>/edit">
+                                                Edit
+                                            </a> 
+                                            <form class="delete-form" method="POST" action="/campgrounds/<%= currCampground._id %>/comments/<%=currCampground.comments[i].id %>?_method=DELETE">
 
-                                        <div class="float-right">
-                                            <p>10 days ago!</p>
-                                        </div>
-                                    </div>
+                                               
+                                                <input type = "submit" class="btn btn-xs btn-danger" value="Delete">
+                                            </form>
+                                            <%}%>
 
-                                </div>
+                </div>
 
-                            </div>
-                            <%}%>
-                    </div>
-
-
-
-                    <hr>
-
-                    <a href="/campgrounds" style="margin-left: 6%" class="btn btn-info sm">Go Back</a>
-
+                <div class="float-right">
+                    <p>10 days ago!</p>
                 </div>
             </div>
 
+        </div>
+
+    </div>
+    <%}%>
+        </div>
+
+
+
+        <hr>
+
+
 
         </div>
-    </div>
+        </div>
+        <hr>
+        <a href="/campgrounds" style="margin: auto auto" class="btn btn-info sm">Go Back</a>
+        </div>
+        </div>
 
 
-    
 
 
 
-    <% include ../partials/footer %>
+
+        <% include ../partials/footer %>
