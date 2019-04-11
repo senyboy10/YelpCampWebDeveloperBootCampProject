@@ -34,11 +34,19 @@ Yelcamp Project from Web developer bootcamp (Udemy)
    * Name
    * Image
    * Description
-   * Comment 
+   * author: {id: { }, username: String},
+   * comments: [{ type:  ref:  }],
+
+* Each User has:
+	* username
+	* password
+* Each Comment has:
+	*  text: , author: { id: { type:, ref:  }, username: String  }
 
 # Front End
-* Bootstrap 4.3.1 (navbar, forms, button)
+* Bootstrap 4.3.1 (navbar, forms, button, alert)
 * HTML, CSS, JavaScript
+* 
 
 # Backend
   * NodeJs
@@ -48,13 +56,14 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 	* express-Session
 	* body-parser
 	* ejs
+	* connect-flash
 
-# Authentication
+# Authentication/Authorization
 * passport
 * * passport
 * * passport Local
 * * passport local Mongoose
-* * 
+* * middlewares
 
 #Sever: run "node app.js"
 	

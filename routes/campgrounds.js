@@ -8,6 +8,7 @@ var Comment = require("../models/comment");
 //index.js will be required
 var middleware = require("../middleware");
 
+
 //  Purpose: list all the campgrounds 
 router.get("/", function(req, res) {
     Campground.find({}, function(err, allCampgrounds) {
@@ -18,10 +19,12 @@ router.get("/", function(req, res) {
     });
 });
 
+
 // form to enter a new campground
 router.get("/newCampground", middleware.isLoggedIn, function(req, res) {
     res.render("campgrounds/newCampground");
 });
+
 
 //Add a new a campground and redirect to /campgrounds
 router.post("/", middleware.isLoggedIn, function(req, res) {
@@ -38,11 +41,13 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
         if (err) {
             console.log(err);
         } else {
+            req.flash("success", newCampG.name + " successfully added!")
             res.redirect("/campgrounds");
         }
     });
 
 });
+
 
 //Display a specific campground
 router.get("/:id", function(req, res) {
@@ -59,16 +64,21 @@ router.get("/:id", function(req, res) {
 
 });
 
+
 //EDIT CAMPGROUND ROUTE FORM
 router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) {
 
     Campground.findById(req.params.id, function(err, foundCampground) {
+        if (err) {
+            req.flash("error", "campground not found!");
+        }
 
         res.render("campgrounds/edit", { campground: foundCampground });
 
     });
 
 });
+
 
 //UPDATE CAMPGROND ROUTE
 router.put("/:id", middleware.checkCampgroundOwnership, function(req, res) {
@@ -83,6 +93,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res) {
             }
         })
 });
+
 
 //DESTROY CAMGROUND
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res) {

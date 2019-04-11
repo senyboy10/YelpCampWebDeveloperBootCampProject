@@ -7,8 +7,9 @@ var express = require("express"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     methodOverride = require('method-override'),
+    flash = require("connect-flash");
 
-    Campground = require("./models/campground"),
+Campground = require("./models/campground"),
     Comment = require("./models/comment"),
     seedDB = require("./seeds"),
     User = require("./models/user");
@@ -29,6 +30,7 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 
 
 //--------PASSPORT AUTHENTICATION CONFIGURATION--------------
@@ -57,9 +59,13 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //----------------------------------------------------------
-//function to pass the user in every page
+//function to pass the user in every page &
+//falsh on every page
+
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 
