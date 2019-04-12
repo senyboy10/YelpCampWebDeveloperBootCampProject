@@ -76,6 +76,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 //Listen on port 3000
-app.listen(port, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
     console.log("YelCamp Server has Started!");
 });
