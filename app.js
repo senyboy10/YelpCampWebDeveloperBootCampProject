@@ -25,14 +25,16 @@ var commentRoutes = require("./routes/comments"),
 //open connection with mongoDB for the yelcamp DB
 //mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true });
 
-const uri = "mongodb+srv://senyboy10:12345Alseny@firstcluster-iauqk.mongodb.net/test?retryWrites=true";
-mongoose.connect(uri, { useNewUrlParser: true }, function(err) {
+//const uri = "mongodb+srv://senyboy10:12345Alseny@firstcluster-iauqk.mongodb.net/test?retryWrites=true";
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }, function(err) {
     if (err) {
         console.log(err);
     } else {
-        console.log("connection successful!");
+        return ("mongoose atlas was successfully connected");
     }
 });
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
