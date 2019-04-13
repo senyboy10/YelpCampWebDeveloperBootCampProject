@@ -23,8 +23,16 @@ var commentRoutes = require("./routes/comments"),
 //seedDB();
 
 //open connection with mongoDB for the yelcamp DB
-mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true });
 
+const uri = "mongodb+srv://senyboy10:12345Alseny@firstcluster-iauqk.mongodb.net/test?retryWrites=true";
+mongoose.connect(uri, { useNewUrlParser: true }, function(err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log("connection successful!");
+    }
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
@@ -76,6 +84,8 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 //Listen on port 3000
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(port, function() {
     console.log("YelCamp Server has Started!");
 });
+
+//process.env.PORT, process.env.IP, function()
