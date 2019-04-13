@@ -1,7 +1,7 @@
 //Create the express framework
 var express = require("express"),
     app = express(),
-    port = 3000,
+    //port = 3000,
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
     passport = require("passport"),
@@ -84,7 +84,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 //Listen on port 3000
-app.listen(port, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
     console.log("YelCamp Server has Started!");
 });
 
