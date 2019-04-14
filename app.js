@@ -23,7 +23,7 @@ var commentRoutes = require("./routes/comments"),
 //seedDB();
 
 //open connection with mongoDB for the yelcamp DB
-/*
+
 mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true }, function(err) {
     if (err) {
         console.log(err);
@@ -31,15 +31,15 @@ mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true }
         console.log("successful connection to local mongoDB");
     }
 });
-*/
-const uri = "mongodb+srv://senyboy10:12345Alseny@firstcluster-iauqk.mongodb.net/?retryWrites=true";
-mongoose.connect(uri, { useNewUrlParser: true }, function(err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("mongoose atlas was successfully connected");
-    }
-});
+console.log(process.env.DATABASEURL);
+// process.env.databaseURL= "mongodb+srv://senyboy10:<         >@firstcluster-iauqk.mongodb.net/?retryWrites=true";
+// mongoose.connect(uri, { useNewUrlParser: true }, function(err) {
+//     if (err) {
+//         console.log(err);
+//     } else {
+//         console.log("mongoose atlas was successfully connected");
+//     }
+// });
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -93,6 +93,9 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 //Listen on port 3000
+console.log(process.env.PORT);
+console.log(process.env.IP);
+
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("YelCamp Server has Started!");
 });
