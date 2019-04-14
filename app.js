@@ -7,7 +7,7 @@ var express = require("express"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     methodOverride = require('method-override'),
-    flash = require("connect-flash");
+    flash = require("connect-flash"),
 
 Campground = require("./models/campground"),
     Comment = require("./models/comment"),
