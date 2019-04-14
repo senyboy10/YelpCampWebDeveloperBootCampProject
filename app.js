@@ -24,7 +24,7 @@ var commentRoutes = require("./routes/comments"),
 
 //open connection with mongoDB for the yelcamp DB
 
-mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true }, function(err) {
+mongoose.connect("mongodb://localhost/yelpcamp", { useNewUrlParser: true }, function(err) {
     if (err) {
         console.log(err);
     } else {
