@@ -24,11 +24,14 @@ var commentRoutes = require("./routes/comments"),
 
 //open connection with mongoDB for the yelcamp DB
 
-mongoose.connect("mongodb://localhost/yelpcamp", { useNewUrlParser: true }, function(err) {
+const MONGODBURL = "mongodb+srv://alseny:12345@cluster0-iauqk.mongodb.net/test?retryWrites=true";
+//"mongodb://localhost/yelpcamp"
+
+mongoose.connect(MONGODBURL, { useNewUrlParser: true }, function(err) {
     if (err) {
         console.log(err);
     } else {
-        console.log("successful connection to local mongoDB");
+        console.log("successful connection to remote mongoDB");
     }
 });
 //console.log(process.env.DATABASEURL);
