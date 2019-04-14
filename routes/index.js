@@ -11,7 +11,7 @@ router.get("/", function(req, res) {
 
 //show register form route
 router.get("/register", function(req, res) {
-    res.render("register");
+    res.render("register",{page:"register"});
 });
 
 //sign up logic route
@@ -24,11 +24,11 @@ router.post("/register", function(req, res) {
         function(err, user) {
             if (err) {
                 console.log(err);
-                req.flash("error", err.message);
-                return res.render("register");
+                
+                return res.render("register",{error:err.message});
             }
             passport.authenticate("local")(req, res, function() {
-                req.flash("success", "Welcome " + user.username);
+                req.flash("success", "Successfully Signed Up! Nice to meet you " + user.username);
                 res.redirect("/campgrounds");
             });
         }
@@ -40,7 +40,7 @@ router.post("/register", function(req, res) {
 //show login form route
 router.get("/login", function(req, res) {
 
-    res.render("login");
+    res.render("login", {page:"login"});
 });
 
 //login form logic route

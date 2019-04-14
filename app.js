@@ -1,3 +1,4 @@
+require('dotenv').config();
 //Create the express framework
 var express = require("express"),
     app = express(),
@@ -9,10 +10,12 @@ var express = require("express"),
     methodOverride = require('method-override'),
     flash = require("connect-flash"),
 
-Campground = require("./models/campground"),
+    Campground = require("./models/campground"),
     Comment = require("./models/comment"),
     seedDB = require("./seeds"),
     User = require("./models/user");
+    
+
 
 //Requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -37,6 +40,8 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 
+
+app.locals.moment = require("moment");
 
 //--------PASSPORT AUTHENTICATION CONFIGURATION--------------
 app.use(require('express-session')({

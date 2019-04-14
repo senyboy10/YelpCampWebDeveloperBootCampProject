@@ -61,6 +61,12 @@ Anyone can and view all the campgrounds, but you must sign up/login to add a new
 	* body-parser
 	* ejs
 	* connect-flash
+	* moment.js
+	* node-geocoder
+	* dotenv
+	
+# APIs
+ * Google Map API (Geolocation)
 
 # Authentication/Authorization
 * passport

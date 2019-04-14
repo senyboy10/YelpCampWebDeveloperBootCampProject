@@ -28,7 +28,9 @@
 
 
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+               
+                <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+
                     <a href="/campgrounds" class="nav-link">Home</a>
                 </li>
             </ul>
@@ -39,10 +41,12 @@
                 <% if (!currentUser){ %>
 
 
-                    <li class="nav-item">
+                     <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
+
                         <a class="nav-link" href="/login">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
+
                         <a class="nav-link" href="/Register">Sign Up</a>
                     </li>
                     <% }else{ %>
