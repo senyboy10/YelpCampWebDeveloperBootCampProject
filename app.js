@@ -24,25 +24,14 @@ var commentRoutes = require("./routes/comments"),
 
 //open connection with mongoDB for the yelcamp DB
 
-const MONGODBURL = "mongodb+srv://alseny:12345@cluster0-iauqk.mongodb.net/test?retryWrites=true";
-//"mongodb://localhost/yelpcamp"
 
-mongoose.connect(MONGODBURL, { useNewUrlParser: true }, function(err) {
+mongoose.connect(process.env.DATABASEURL,  { useNewUrlParser: true }, function(err) {
     if (err) {
         console.log(err);
     } else {
         console.log("successful connection to remote mongoDB");
     }
 });
-//console.log(process.env.DATABASEURL);
-// process.env.databaseURL= "mongodb+srv://senyboy10:<         >@firstcluster-iauqk.mongodb.net/?retryWrites=true";
-// mongoose.connect(uri, { useNewUrlParser: true }, function(err) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log("mongoose atlas was successfully connected");
-//     }
-// });
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
