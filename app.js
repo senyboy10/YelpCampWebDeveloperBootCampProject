@@ -31,7 +31,7 @@ mongoose.connect("mongodb://localhost:27017/yelpcamp", { useNewUrlParser: true }
         console.log("successful connection to local mongoDB");
     }
 });
-console.log(process.env.DATABASEURL);
+//console.log(process.env.DATABASEURL);
 // process.env.databaseURL= "mongodb+srv://senyboy10:<         >@firstcluster-iauqk.mongodb.net/?retryWrites=true";
 // mongoose.connect(uri, { useNewUrlParser: true }, function(err) {
 //     if (err) {
@@ -92,9 +92,7 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-//Listen on port 3000
-console.log(process.env.PORT);
-console.log(process.env.IP);
+
 
 app.listen(process.env.PORT, process.env.IP, function() {
     console.log("YelCamp Server has Started!");
