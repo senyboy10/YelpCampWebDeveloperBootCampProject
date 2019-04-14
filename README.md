@@ -1,6 +1,9 @@
 # YelpCampWebDeveloperBootCampProject
 
-Yelcamp Project from Web developer bootcamp (Udemy)
+Yelcamp is a nodeJs web application that focus on CRUD using express. It allows users sign up and add pictures of campgrouds to a timeline so people can view and comment on them.
+Anyone can and view all the campgrounds, but you must sign up/login to add a new campground, and add comments. 
+
+#Link to Application: https://alsenyyelpcamp.herokuapp.com/
 
 #YelpCamp
 
@@ -29,6 +32,7 @@ Yelcamp Project from Web developer bootcamp (Udemy)
 # DBMS
 * MongoDB
 	* mongoose for schema and Model
+	* mongoAtlas
 
 * Each Campground has:
    * Name
