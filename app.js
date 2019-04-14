@@ -19,17 +19,13 @@ var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     authRoutes = require('./routes/index');
 
-//add three new campgrounds sample everything the server restarts
-//seedDB();
+var url = process.env.DATABASEURL || "mongodb://localhost/yelpcamp";
 
-//open connection with mongoDB for the yelcamp DB
-
-
-mongoose.connect(process.env.DATABASEURL,  { useNewUrlParser: true }, function(err) {
+mongoose.connect( url,  { useNewUrlParser: true }, function(err) {
     if (err) {
         console.log(err);
     } else {
-        console.log("successful connection to remote mongoDB");
+        console.log("successful connection to remote || local mongoDB");
     }
 });
 
@@ -90,4 +86,3 @@ app.listen(process.env.PORT, process.env.IP, function() {
     console.log("YelCamp Server has Started!");
 });
 
-//process.env.PORT, process.env.IP, function()
