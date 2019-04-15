@@ -62,6 +62,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
                             cost: cost_, author: author_, location:location, lat:lat, lng:lng };
         Campground.create(newCamGround, function(err, newCampG) {
             if (err) {
+                req.flash("error", "all fiels must be completed");
                 console.log(err);
             } else {
                 req.flash("success", newCampG.name + " successfully added!")
