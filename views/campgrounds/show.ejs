@@ -20,7 +20,7 @@
                     </h5>
                     <hr>
                     <p>
-                        <%=campground.description %>
+                        <%-campground.description %>
                     </p>
                     <p><em> Submitted by: <%= campground.author.username%>, <%= moment(campground.createdAt).fromNow()%> </em>
                     </p>
